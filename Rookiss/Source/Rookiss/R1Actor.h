@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "R1Actor.generated.h"
+
 //generated는 항상 마지막에
 
 UCLASS()
@@ -39,14 +40,25 @@ protected:
 	//UPROPERTY() 그래프 루트에는 포함이 됨 하지만 에디터 상에서는 나오지않음
 	//메타데이터 안에 힌트를 줄 수 있음
 	//BlueprintReadWirte기능 = protected, Set, Get이 가능
+	//클래스를 하나 파고 생 포인터 하나를 들고있음
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Stat)
-	int32 Hp = 100;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TObjectPtr<UStaticMeshComponent> Body;
 
-	UPROPERTY();
-	int32 Mp = 50;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TObjectPtr<UStaticMeshComponent> Head;
 
-	UPROPERTY();
-	float Speed = 3.5f;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TObjectPtr<UStaticMeshComponent> Wing;
 
+	UPROPERTY()
+	TObjectPtr<class AR1Actor> Actor;
+
+	UPROPERTY()
+	TObjectPtr<AActor> Target;
+
+	//R1Actor를 상속받은 클래스를 담을 수 있는 변수
+	//UClass를 들고있는 클래스 만약 캐스팅이 실패하면 못 가져옴
+	UPROPERTY()
+	TSubclassOf<AR1Actor> ActorClass;
 };
