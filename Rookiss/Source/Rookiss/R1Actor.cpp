@@ -47,7 +47,7 @@ AR1Actor::AR1Actor()
 
 	//에셋 찾아오기
 	ConstructorHelpers::FObjectFinder<UStaticMesh> FindMesh
-	(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
+	(TEXT("/Script/Engine.StaticMesh'/Game/LevelPrototyping/Meshes/SM_Cube.SM_Cube''"));
 	
 	if (FindMesh.Succeeded())
 	{

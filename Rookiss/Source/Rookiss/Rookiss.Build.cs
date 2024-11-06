@@ -7,8 +7,15 @@ public class Rookiss : ModuleRules
 	public Rookiss(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+
+		//R1폴더를 기준으로 다시 찾기
+		//추가적으로 찾을 경로를 미리 설정해둠
+        PublicIncludePaths.AddRange(new string[]
+		{
+			"Rookiss"
+		});
+
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" ,"EnhancedInput"  });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
